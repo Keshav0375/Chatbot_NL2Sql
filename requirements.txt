@@ -6,3 +6,4 @@ chromadb
 python-dotenv
 pandas
 streamlit
+streamlit_option_menu==0.3.2
