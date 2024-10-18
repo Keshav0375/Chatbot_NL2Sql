@@ -4,12 +4,9 @@ from operator import itemgetter
 from langchain.chains.openai_tools import create_extraction_chain_pydantic
 from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain_openai import ChatOpenAI
+from langchain_openai import AzureChatOpenAI
 from typing import List
-from dotenv import load_dotenv
-import os
-load_dotenv()
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-llm = ChatOpenAI(model="gpt-3.5-turbo-1106", temperature=0)
+
 
 
 @st.cache_data
@@ -45,5 +42,22 @@ The tables are:
 {table_details}
 
 Remember to include ALL POTENTIALLY RELEVANT tables, even if you're not sure that they're needed."""
+def table_func(AZURE_API_KEY, AZURE_ENDPOINT, AZURE_API_VERSION, OPENAI_API_KEY):
+    llm = None
+    if AZURE_API_KEY and AZURE_ENDPOINT and AZURE_API_VERSION:
+        llm = AzureChatOpenAI(
+            deployment_name="slideoo-chat-1",
+            temperature=1,
+            max_tokens=4000,
+            azure_endpoint=AZURE_ENDPOINT,
+            api_key=AZURE_API_KEY,
+            api_version=AZURE_API_VERSION,
+        )
+    elif OPENAI_API_KEY:
+        llm = ChatOpenAI(model="gpt-3.5-turbo-1106", temperature=0)
 
-table_chain = {"input": itemgetter("question")} | create_extraction_chain_pydantic(Table, llm, system_message=table_details_prompt) | get_tables
+    if llm:
+        table_chain = {"input": itemgetter("question")} | create_extraction_chain_pydantic(Table, llm, system_message=table_details_prompt) | get_tables
+    else:
+        table_chain = None
+    return table_chain
