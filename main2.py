@@ -73,7 +73,7 @@ if selected_tab == 'Home':
     with col2:
         st.markdown(f"<p class='description'>{description_text}</p>", unsafe_allow_html=True)
 
-    st.image("/best_front.png", use_column_width=True)
+    st.image("Helper_images/best_front.png", use_column_width=True)
 
 if selected_tab == "Add Environment Variables":
     st.markdown("""
@@ -199,7 +199,7 @@ elif selected_tab == "Add Table Descriptions":
         "<h1 style='font-family: Georgia, serif; font-size: 25px;  font-weight: normal;'> Description: A brief description or comment for each field, providing additional context or information.</h1>",
         unsafe_allow_html=True)
 
-    st.image("sample_csv.jpg", use_column_width=True)
+    st.image("Helper_images/sample_csv.jpg", use_column_width=True)
 
 
 elif selected_tab == "Add Few Shots Example":
