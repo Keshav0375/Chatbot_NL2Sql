@@ -59,7 +59,7 @@ if selected_tab == 'Home':
         """
 
     # Define the image URL
-    image_url = "C:/Users/DELL/PycharmProjects/NL2SQL/Chatbot_NL2Sql/Helper_images/chatbot.jpg"
+    image_url = "Helper_images/chatbot.jpg"
 
     # Layout the title, description, and image horizontally using columns
     col1, col2 = st.columns([1, 3])
@@ -73,7 +73,7 @@ if selected_tab == 'Home':
     with col2:
         st.markdown(f"<p class='description'>{description_text}</p>", unsafe_allow_html=True)
 
-    st.image("C:/Users/DELL/PycharmProjects/NL2SQL/Chatbot_NL2Sql/Helper_images/best_front.png", use_column_width=True)
+    st.image("/best_front.png", use_column_width=True)
 
 if selected_tab == "Add Environment Variables":
     st.markdown("""
@@ -141,7 +141,7 @@ elif selected_tab == "Connecting to Database":
             """
 
     # Define the image URL
-    image_url = "C:/Users/DELL/PycharmProjects/NL2SQL/Chatbot_NL2Sql/Helper_images/contable.jpg"
+    image_url = "Helper_images/contable.jpg"
 
     # Layout the title, description, and image horizontally using columns
     col1, col2 = st.columns([1, 3])
@@ -199,7 +199,7 @@ elif selected_tab == "Add Table Descriptions":
         "<h1 style='font-family: Georgia, serif; font-size: 25px;  font-weight: normal;'> Description: A brief description or comment for each field, providing additional context or information.</h1>",
         unsafe_allow_html=True)
 
-    st.image("C:/Users/DELL/PycharmProjects/NL2SQL/Chatbot_NL2Sql/Helper_images/sample_csv.jpg", use_column_width=True)
+    st.image("sample_csv.jpg", use_column_width=True)
 
 
 elif selected_tab == "Add Few Shots Example":
@@ -250,7 +250,7 @@ elif selected_tab == "Add Few Shots Example":
         "<h1 style='font-family: Georgia, serif; font-size: 35px'>Structure of Example Files</h1>",
         unsafe_allow_html=True)
 
-    st.image("C:/Users/DELL/PycharmProjects/NL2SQL/Chatbot_NL2Sql/Helper_images/egfew.png", use_column_width=True)
+    st.image("Helper_images/egfew.png", use_column_width=True)
 
 
 elif selected_tab == "Chatbot":
